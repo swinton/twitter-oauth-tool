@@ -7,7 +7,7 @@ import oauth_utils
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
-def scratch(path):
+def api(path):
     url = "https://api.twitter.com/{path}".format(path=path)
     params = dict(zip(request.args.keys(), request.args.values()))
     return redirect(oauth_utils.signed_request_url(url, **params))
